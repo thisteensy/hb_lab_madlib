@@ -28,7 +28,7 @@ def show_madlib_form():
 def show_mad_lib():
     """Create the madlib"""
 
-    name = request.args.get("person")
+    name = request.args.get('person')
     color = request.args.get('color')
     noun = request.args.get('noun')
     adjective = request.args.get('adjective')
