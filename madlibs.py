@@ -21,17 +21,24 @@ def show_madlib_form():
     answer = request.args.get("answer")
     if answer == "Yes":
         return render_template("game.html")
-    else:
+    elif answer == "No":
         return render_template("goodbye.html")
 
-@app.route('/madlib', methods = ["POST"])
+@app.route('/madlib')
 def show_mad_lib():
     """Create the madlib"""
 
-    color = request.form.get('colour')
-    noun = request.form.get('noun')
-    adjective = request.form.get('adjective')
+    name = request.args.get("person")
+    color = request.args.get('color')
+    noun = request.args.get('noun')
+    adjective = request.args.get('adjective')
 
+    return render_template("madlib.html",
+                           person=name,
+                           color=color,
+                           noun=noun,
+                           adjective=adjective,
+                           )
 
 @app.route('/')
 def start_here():
